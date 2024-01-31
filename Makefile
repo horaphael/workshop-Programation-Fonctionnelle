@@ -5,7 +5,8 @@
 ## Step 3
 ##
 
-MAIN = Main.hs
+MAIN = Main.hs	\
+	   operation.hs
 
 BIN = test
 

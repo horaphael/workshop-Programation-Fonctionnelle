@@ -1,13 +1,17 @@
-doOp :: Int -> Int -> Int
-doOp a b = a + b
+module Main where
+
+import Operations
+
+calculate :: String -> String
+calculate input =
+    case words input of
+        [num1, "+", num2] -> show (addition (read num1) (read num2))
+        [num1, "-", num2] -> show (substraction (read num1) (read num2))
+        [num1, "/", num2] -> show (divide (read num1) (read num2))
+        [num1, "*", num2] -> show (multiply (read num1) (read num2))
 
 main :: IO ()
 main = do
-    input1 <- getLine
-    let num1 = read input1
-
-    input2 <- getLine
-    let num2 = read input2
-
-    let result = doOp num1 num2
-    print(result)
+    putStrLn "Entrez votre calcul :"
+    input <- getLine
+    putStrLn $ calculate input
